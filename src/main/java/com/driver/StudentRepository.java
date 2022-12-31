@@ -58,6 +58,12 @@ public class StudentRepository {
         teacherDb.remove(teacherName);
     }
     public void deleteAllTeachers(){
+        for(String name:teacherDb.keySet()){
+            List<String> l=pair.get(name);
+            for(String studentName:l){
+                studentDb.remove(studentName);
+            }
+        }
         pair = new HashMap<>();
         teacherDb = new HashMap<>();
     }
