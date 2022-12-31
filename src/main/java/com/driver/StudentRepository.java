@@ -50,6 +50,10 @@ public class StudentRepository {
         return l;
     }
     public void deleteTeacherAndStudents(String teacherName){
+        List<String> lis= pair.get(teacherName);
+        for(String name:lis){
+            studentDb.remove(name);
+        }
         pair.remove(teacherName);
         teacherDb.remove(teacherName);
     }
